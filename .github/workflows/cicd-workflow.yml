@@ -24,6 +24,6 @@ jobs:
       - name: Pull image from docker hub
         run: docker pull brew3/qsd-client:latest
       - name: Delete existing containers
-        run: docker --rm -f qsd-client-container
+        run: docker rm -f qsd-client-container
       - name: Run docker container
         run: docker run -d -p 3000:3000 --name qsd-client-container brew3/qsd-client:latest
