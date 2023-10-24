@@ -7,6 +7,22 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import Link from "next/link";
+
+const navList = [
+  { title: "Home", link: "/" },
+  { title: "About Us", link: "/about" },
+  { title: "Services", link: "/services" },
+  { title: "Pricing", link: "/pricing" },
+  { title: "Testimonials", link: "/testimonials" },
+];
+
 export default function Footer() {
   const theme = useTheme();
   const phoneView = useMediaQuery(theme.breakpoints.down("sm"));
@@ -45,18 +61,29 @@ export default function Footer() {
             <Box
               display={!phoneView || selected === "contact" ? "block" : "none"}
             >
-              <Typography fontSize={14} mb={0.5}>
-                Call
-              </Typography>
-              <Typography fontSize={14} mb={0.5}>
-                Email
-              </Typography>
-              <Typography fontSize={14} mb={0.5}>
-                Address
-              </Typography>
-              <Typography fontSize={14} mb={0.5}>
-                Socials
-              </Typography>
+              <Box sx={{ display: "flex", mb: 0.5 }}>
+                <PhoneIcon fontSize="small" />
+                <Typography fontSize={14} ml={1}>
+                  Call: +233 50 000 0000
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", mb: 0.5 }}>
+                <EmailIcon fontSize="small" />
+                <Typography fontSize={14} ml={1}>
+                  Email: asantewaa@gmail.com
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", mb: 0.5 }}>
+                <LocationOnIcon fontSize="small" />
+                <Typography fontSize={14} ml={1}>
+                  221 Baker Street, Kwashiman, Accra
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", mt: 1 }}>
+                <FacebookIcon fontSize="small" sx={{ mr: 1 }} />
+                <InstagramIcon fontSize="small" sx={{ mr: 1 }} />
+                <WhatsAppIcon fontSize="small" />
+              </Box>
             </Box>
           </Grid>
           <Grid item xs={12} sm={3} textAlign={phoneView ? "center" : "start"}>
@@ -71,21 +98,13 @@ export default function Footer() {
             <Box
               display={!phoneView || selected === "links" ? "block" : "none"}
             >
-              <Typography fontSize={14} mb={0.5}>
-                Home
-              </Typography>
-              <Typography fontSize={14} mb={0.5}>
-                About Us
-              </Typography>
-              <Typography fontSize={14} mb={0.5}>
-                Contact Us
-              </Typography>
-              <Typography fontSize={14} mb={0.5}>
-                Pricing
-              </Typography>
-              <Typography fontSize={14} mb={0.5}>
-                Reviews
-              </Typography>
+              {navList.map((navItem, idx) => (
+                <Link key={idx} href={navItem.link}>
+                  <Typography fontSize={14} mb={0.5}>
+                    {navItem.title}
+                  </Typography>
+                </Link>
+              ))}
             </Box>
           </Grid>
           <Grid item xs={12} sm={3} textAlign={phoneView ? "center" : "start"}>
@@ -147,7 +166,6 @@ export default function Footer() {
               <Typography fontSize={12} mr={2}>
                 {new Date().getFullYear()} @QSD
               </Typography>
-              {/* <Typography fontSize={12}>All rights reserved</Typography> */}
               <Typography fontSize={12} mr={2}>
                 Terms and Conditions
               </Typography>

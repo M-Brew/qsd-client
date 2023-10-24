@@ -8,7 +8,6 @@ import { useMediaQuery } from "@mui/material";
 
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
@@ -23,9 +22,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 const navList = [
   { title: "Home", link: "/" },
   { title: "About Us", link: "/about" },
-  { title: "Services", link: "/" },
-  { title: "Pricing", link: "/" },
-  { title: "Testimonials", link: "/" },
+  { title: "Services", link: "/services" },
+  { title: "Pricing", link: "/pricing" },
+  { title: "Testimonials", link: "/testimonials" },
 ];
 
 export default function Navbar() {
