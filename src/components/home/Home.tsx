@@ -4,6 +4,7 @@ import React from "react";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -82,19 +83,19 @@ const accomplishments: IAccomplishment[] = [
 
 const teamMembers: ITeamMember[] = [
   {
-    name: "Akosua",
+    name: "Asantewaa",
     image:
       "https://plus.unsplash.com/premium_photo-1667520389879-a54173824049?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
     role: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt repellat illo nostrum quae. Adipisci, qui.",
   },
   {
-    name: "Akosua",
+    name: "Asantewaa",
     image:
       "https://plus.unsplash.com/premium_photo-1667520389879-a54173824049?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
     role: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt repellat illo nostrum quae. Adipisci, qui.",
   },
   {
-    name: "Akosua",
+    name: "Asantewaa",
     image:
       "https://plus.unsplash.com/premium_photo-1667520389879-a54173824049?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
     role: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt repellat illo nostrum quae. Adipisci, qui.",
@@ -160,6 +161,7 @@ const testimonials: ITestimonial[] = [
 ];
 
 export default function Home() {
+  const router = useRouter();
   const theme = useTheme();
   const phoneView = useMediaQuery(theme.breakpoints.down("sm"));
   const tabletView = useMediaQuery(theme.breakpoints.down("md"));
@@ -293,7 +295,11 @@ export default function Home() {
               ))}
               <Grid item xs={12}>
                 <Box mt={3} textAlign="center">
-                  <Button variant="contained" disableElevation>
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    onClick={() => router.push("/services")}
+                  >
                     <Typography color="#ffffff" fontSize={14}>
                       View All Services
                     </Typography>
@@ -405,7 +411,11 @@ export default function Home() {
             </Grid>
             <Grid item xs={12}>
               <Box mt={3} textAlign="center">
-                <Button variant="contained" disableElevation>
+                <Button
+                  variant="contained"
+                  disableElevation
+                  onClick={() => router.push("/about")}
+                >
                   <Typography color="#ffffff" fontSize={14}>
                     The Team
                   </Typography>
@@ -461,7 +471,11 @@ export default function Home() {
               ))}
               <Grid item xs={12}>
                 <Box mt={3} textAlign="center">
-                  <Button variant="contained" disableElevation>
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    onClick={() => router.push("/testimonials")}
+                  >
                     <Typography color="#ffffff">More</Typography>
                   </Button>
                 </Box>
